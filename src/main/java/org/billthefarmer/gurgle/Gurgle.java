@@ -23,11 +23,9 @@
 
 package org.billthefarmer.gurgle;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,6 +42,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
@@ -172,6 +171,7 @@ public class Gurgle extends Activity
     public static final int GERMAN     = 6;
     public static final int DUTCH      = 7;
     public static final int AFRIKAANS  = 8;
+    public static final int POLISH  = 9;
 
     public static final int SIZE = 5;
     public static final int ROWS = 6;
@@ -646,6 +646,10 @@ public class Gurgle extends Activity
 
         case R.id.afrikaans:
            setLanguage(AFRIKAANS);
+           break;
+
+            case R.id.polish:
+           setLanguage(POLISH);
            break;
 
         case R.id.getText:
@@ -1395,6 +1399,9 @@ public class Gurgle extends Activity
 
         case AFRIKAANS:
 		return "af";
+
+        case POLISH:
+        return "pl";
         }
     }
 
@@ -1448,6 +1455,10 @@ public class Gurgle extends Activity
 
         case AFRIKAANS:
             getActionBar().setSubtitle(R.string.afrikaans);
+            break;
+
+            case POLISH:
+            getActionBar().setSubtitle(R.string.polish);
             break;
         }
     }
